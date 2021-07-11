@@ -3,6 +3,7 @@ package com.ktb.gulimall.member.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+import com.ktb.gulimall.member.feign.CouponFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,6 +31,16 @@ public class MemberController {
     @Autowired
     private MemberService memberService;
 
+    @Autowired
+    private CouponFeignService feignService;
+
+   @RequestMapping("coupons")
+    public R test(){
+       MemberEntity memberEntity = new MemberEntity();
+       memberEntity.setNickname("zhangshnan");
+       R membercoupons = feignService.membercoupons();
+       return R.ok().put("name",memberEntity).put("coupons",membercoupons.get("coupons"));
+   }
     /**
      * 列表
      */
