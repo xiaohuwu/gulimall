@@ -52,7 +52,7 @@ spring:
             - RewritePath=/api/(?<segment>.*),/$\{segment}
 
         - id: coupon_route
-          uri: lb://gulimall-coupon
+          uri: lb://coupon
           predicates:
             - Path=/api/coupon/**
           filters:
