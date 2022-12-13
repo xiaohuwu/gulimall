@@ -58,3 +58,5 @@ pagehelper:
 renren:
   database: mysql
 
+logging.level.com.ktb.gulimall: debug
+logging.level.org.springframework.web: DEBUG

@@ -22,13 +22,5 @@ mybatis-plus:
 server:
   port: 8600
 
-logging:
-  level:
-    org:
-      springframework:
-        web:
-          servlet:
-            mvc:
-              method:
-                annotation:
-                  RequestMappingHandlerMapping: trace
+logging.level.com.ktb.gulimall: debug
+logging.level.org.springframework.web: DEBUG

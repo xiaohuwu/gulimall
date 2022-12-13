@@ -14,3 +14,6 @@ mybatis-plus:
       id-type: auto
 server:
   port: 7100
+
+logging.level.com.ktb.gulimall: debug
+logging.level.org.springframework.web: DEBUG
