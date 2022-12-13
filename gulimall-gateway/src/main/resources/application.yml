@@ -1,6 +1,6 @@
 server:
   port: 88
-
+logging.level.org.springframework.cloud.gateway: trace
 spring:
   application:
     name: gulimall-gateway
@@ -106,4 +106,4 @@ spring:
   ## 前端项目，/api
 
 ## http://localhost:88/api/captcha.jpg   http://localhost:8080/renren-fast/captcha.jpg
-## http://localhost:88/api/product/category/list/tree http://localhost:10000/product/category/list/tree
+## http://localhost:88/api/product/pmscategory/list http://localhost:8082/product/pmscategory/list
