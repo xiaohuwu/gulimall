@@ -14,7 +14,7 @@ spring:
         - id: test_route
           uri: https://www.baidu.com
           predicates:
-            - Query=url,baidu
+            - AddRequestParameter=url,baidu
 
         - id: qq_route
           uri: https://www.qq.com
@@ -103,7 +103,6 @@ spring:
             - Host=**.gulimall.com  # item
 
 
-  ## 前端项目，/api
-
+## 前端项目，/api
 ## http://localhost:88/api/captcha.jpg   http://localhost:8080/renren-fast/captcha.jpg
 ## http://localhost:88/api/product/pmscategory/list http://localhost:8082/product/pmscategory/list
