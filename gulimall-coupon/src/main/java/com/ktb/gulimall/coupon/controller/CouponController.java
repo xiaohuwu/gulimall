@@ -31,7 +31,7 @@ public class CouponController {
     @Autowired
     private CouponService couponService;
 
-    @Value("${coupon.name}")
+    @Value("${spring.application.name}")
     private String name;
 
     @RequestMapping("/member/list")

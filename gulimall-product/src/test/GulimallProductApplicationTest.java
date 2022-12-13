@@ -30,8 +30,8 @@ public class GulimallProductApplicationTest {
         PmsBrandEntity pmsBrandEntity = new PmsBrandEntity();
         pmsBrandEntity.setName("华为");
         brandService.save(pmsBrandEntity);
-        PmsBrandEntity byId = brandService.getById(1);
-        System.out.println(byId);
+        PmsBrandEntity byId = brandService.getById(pmsBrandEntity.getBrandId());
+        System.out.println("byId = " + byId);
     }
 
 }
