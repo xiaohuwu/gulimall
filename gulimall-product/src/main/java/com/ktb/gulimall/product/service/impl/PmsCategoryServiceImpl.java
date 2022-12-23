@@ -1,7 +1,11 @@
 package com.ktb.gulimall.product.service.impl;
 
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -24,6 +28,36 @@ public class PmsCategoryServiceImpl extends ServiceImpl<PmsCategoryDao, PmsCateg
         );
 
         return new PageUtils(page);
+    }
+
+    @Override
+    public List<PmsCategoryEntity> listWithTree() {
+        List<PmsCategoryEntity> categoryEntities = baseMapper.selectList(null);
+        //找到所有的一级分类
+        List<PmsCategoryEntity> level1Menus = categoryEntities.stream()
+                .filter(item -> item.getParentCid() == 0)
+                .map(menu->{
+                    menu.setChildCategoryEntity(getChildrens(menu,categoryEntities));
+                    return menu;
+                })
+                .sorted((menu1, menu2) -> {
+                    return (menu1.getSort() ==null ? 0:menu1.getSort())- (menu2.getSort()==null?0:menu2.getSort());
+                })
+                .collect(Collectors.toList());
+        return level1Menus;
+    }
+
+    public List<PmsCategoryEntity> getChildrens(PmsCategoryEntity root,List<PmsCategoryEntity> all){
+        List<PmsCategoryEntity> childrens = all.stream().filter(item -> {
+            return item.getParentCid() == root.getCatId();
+        }).map(item -> {
+            item.setChildCategoryEntity(getChildrens(item, all));
+            return item;
+        }).sorted((menu1, menu2) -> {
+            return (menu1.getSort() ==null ? 0:menu1.getSort())- (menu2.getSort()==null?0:menu2.getSort());
+        }).collect(Collectors.toList());
+
+        return childrens;
     }
 
 }

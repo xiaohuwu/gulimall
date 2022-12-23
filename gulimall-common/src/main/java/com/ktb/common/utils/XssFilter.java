@@ -8,7 +8,6 @@
 
 package com.ktb.common.utils;
 
-import io.renren.common.xss.XssHttpServletRequestWrapper;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;

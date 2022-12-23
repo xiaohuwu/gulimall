@@ -8,7 +8,7 @@
 
 package com.ktb.common.utils;
 
-import io.renren.common.exception.RRException;
+import com.ktb.common.exception.RRException;
 import org.apache.commons.lang.StringUtils;
 
 /**
