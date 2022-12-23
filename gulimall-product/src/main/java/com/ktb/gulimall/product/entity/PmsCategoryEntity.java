@@ -2,6 +2,7 @@ package com.ktb.gulimall.product.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
@@ -40,6 +41,7 @@ public class PmsCategoryEntity implements Serializable {
     /**
      * ?Ƿ???ʾ[0-????ʾ??1??ʾ]
      */
+    @TableLogic(value = "1",delval = "0")
     private Integer showStatus;
     /**
      * ???

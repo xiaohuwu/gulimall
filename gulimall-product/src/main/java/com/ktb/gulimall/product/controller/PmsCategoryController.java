@@ -26,7 +26,7 @@ import com.ktb.common.utils.R;
  * @date 2021-07-09 22:47:45
  */
 @RestController
-@RequestMapping("product/pmscategory")
+@RequestMapping("product/category")
 public class PmsCategoryController {
     @Autowired
     private PmsCategoryService pmsCategoryService;
